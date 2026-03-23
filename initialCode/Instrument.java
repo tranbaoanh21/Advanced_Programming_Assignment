@@ -1,6 +1,6 @@
 import java.time.LocalDateTime;
 
-public abstract class Instrument {
+public abstract class Instrument implements Tradeable, Priceable {
     private final String symbol;
     private String name;
     private double currentPrice;
@@ -44,5 +44,22 @@ public abstract class Instrument {
     @Override
     public String toString() {
         return getClass().getSimpleName() + " [symbol=" + symbol + ", price=" + currentPrice + ", risk=" + riskScore() + "]";
+    }
+
+
+    /* ----------------- PROBLEM 5 -------------- */
+    @Override
+    public double getPriceChange(double previousPrice) {
+        return this.currentPrice - previousPrice;
+    }
+    
+    @Override
+    public double getPriceChangePercent(double previousPrice) {
+        return ((this.currentPrice - previousPrice) / previousPrice) * 100;
+    }
+    
+    @Override
+    public boolean isAvailableForTrading() {
+        return true;
     }
 }
