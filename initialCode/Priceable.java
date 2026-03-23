@@ -5,3 +5,4 @@ public interface Priceable {
 
     double getPriceChangePercent(double previousPrice);
 }
+

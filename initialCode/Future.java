@@ -20,4 +20,8 @@ public class Future extends Derivative {
     public int getExpiryDays() {
         return expiryDays;
     }
+    @Override
+    public void accept(InstrumentVisitor visitor) {
+        visitor.visit(this);
+    }
 }
