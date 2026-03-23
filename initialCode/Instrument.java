@@ -7,7 +7,6 @@ public abstract class Instrument {
     private LocalDateTime lastUpdated;
 
     public Instrument(String symbol, String name, double currentPrice) {
-        // TODO
         this.symbol = symbol;
         this.name = name;
         this.currentPrice = currentPrice;
