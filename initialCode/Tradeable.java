@@ -4,11 +4,9 @@ public interface Tradeable {
     double getCurrentPriceValue();
 
     boolean isAvailableForTrading();
-    
 
     default String getTradingInfo() {
-        String status = isAvailableForTrading() ? "Available" : "Unavailable";
-        return "Tradeable: " + getSymbol() + " at $" + getCurrentPriceValue() + " (" + status + ")";
+        String status = isAvailableForTrading() ? "AVAILABLE" : "UNAVAILABLE";
+        return String.format("%s @ %.2f [%s]", getSymbol(), getCurrentPriceValue(), status);
     }
 }
-

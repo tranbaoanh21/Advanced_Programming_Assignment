@@ -33,8 +33,4 @@ public class Stock extends Instrument {
     public String getSector() {
         return this.sector;
     }
-    @Override
-    public void accept(InstrumentVisitor visitor) {
-        visitor.visit(this);
-    }
 }
