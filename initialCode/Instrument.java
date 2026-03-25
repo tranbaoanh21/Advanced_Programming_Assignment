@@ -14,7 +14,8 @@ public abstract class Instrument implements Tradeable, Priceable {
     }
 
     public abstract double riskScore();
-
+    public abstract void accept(InstrumentVisitor visitor);
+    // abstract 
     public abstract String assetClass();
     
     public void updatePrice(double newPrice) {

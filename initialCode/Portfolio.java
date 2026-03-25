@@ -71,7 +71,7 @@ public class Portfolio implements Observable<String> {
     }
 
 
-    /* allocationByAssetClass hasn't been defined in Spec */
+    /* Hàm allocationByAssetClass chưa được định nghĩa trong đặc tả */
 
     public Map<String, Double> allocationByAssetClass() {
         // TODO
@@ -79,11 +79,13 @@ public class Portfolio implements Observable<String> {
         double totalValue = totalMarketValue();
         if (totalValue == 0) return map;
         
+        // Tính tổng giá trị theo từng Asset Class
         for (Position p : positions) {
             String assetClass = p.getInstrument().assetClass();
             map.put(assetClass, map.getOrDefault(assetClass, 0.0) + p.marketValue());
         }
         
+        // Chuyển đổi sang tỷ lệ phần trăm (percentage)
         for (Map.Entry<String, Double> entry : map.entrySet()) {
             entry.setValue((entry.getValue() / totalValue) * 100);
         }
