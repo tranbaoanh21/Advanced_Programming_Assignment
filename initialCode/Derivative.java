@@ -4,7 +4,6 @@ public abstract class Derivative extends Instrument {
         super(symbol, name, currentPrice);
     }
 
-    
     @Override
     public String assetClass() {
         return "DERIVATIVE";

@@ -14,8 +14,7 @@ public abstract class Instrument implements Tradeable, Priceable {
     }
 
     public abstract double riskScore();
-    public abstract void accept(InstrumentVisitor visitor);
-    // abstract 
+
     public abstract String assetClass();
     
     public void updatePrice(double newPrice) {
@@ -56,6 +55,9 @@ public abstract class Instrument implements Tradeable, Priceable {
     
     @Override
     public double getPriceChangePercent(double previousPrice) {
+        if (previousPrice < 0) {
+            throw new IllegalArgumentException("Invalid previous price: division by zero");
+        }
         return ((this.currentPrice - previousPrice) / previousPrice) * 100;
     }
     
